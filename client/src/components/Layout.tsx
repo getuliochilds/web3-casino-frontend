@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import ConnectWalletButton from "./ConnectWalletButton";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { theme, setTheme } = useTheme();
@@ -69,9 +70,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               )}
             </Button>
             
-            <Button className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all duration-300">
-              Connect Wallet
-            </Button>
+            <div className="hidden md:block">
+              <ConnectWalletButton />
+            </div>
 
             {/* Mobile Menu */}
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
@@ -96,9 +97,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       </Link>
                     ))}
                   </div>
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg">
-                    Connect Wallet
-                  </Button>
+                  <div className="w-full flex justify-center">
+                    <ConnectWalletButton />
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>

@@ -24,18 +24,21 @@ function Router() {
 // - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 import Layout from "./components/Layout";
+import { Web3Provider } from "./contexts/Web3Provider";
 
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="dark">
-        <TooltipProvider>
-          <Toaster />
-          <Layout>
-            <Router />
-          </Layout>
-        </TooltipProvider>
-      </ThemeProvider>
+      <Web3Provider>
+        <ThemeProvider defaultTheme="dark">
+          <TooltipProvider>
+            <Toaster />
+            <Layout>
+              <Router />
+            </Layout>
+          </TooltipProvider>
+        </ThemeProvider>
+      </Web3Provider>
     </ErrorBoundary>
   );
 }
